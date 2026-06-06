@@ -63,7 +63,7 @@ if (isset($_POST['login'])) {
                 </div>
                 <h1 class="display-5 fw-bold mb-3 lh-sm">Sistem Peminjaman <br>Alat Laboratorium</h1>
                 <p class="text-secondary fs-5 mb-0" style="color: #94a3b8 !important;">
-                    Silakan masuk untuk mengelola data mahasiswa, inventarisasi alat, ruangan, mata kuliah, serta pelacakan log peminjaman alat.
+                    Silakan masuk untuk mengelola data mahasiswa, inventarisasi alat, ruangan, matakuliah, serta pelacakan log peminjaman alat.
                 </p>
             </div>
         </div>

@@ -106,7 +106,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
                 <div class="nav-item">
                     <a class="nav-link <?php echo ($current_page == 'matakuliah.php') ? 'active-menu' : ''; ?>" href="matakuliah.php">
-                        <i class="bi bi-book-half"></i> Mata Kuliah
+                        <i class="bi bi-book-half"></i> Matakuliah
                     </a>
                 </div>
 

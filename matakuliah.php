@@ -14,7 +14,7 @@ if (!$query) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data MataKuliah - Laboratorium</title>
+    <title>Data Matakuliah - Laboratorium</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -82,7 +82,7 @@ if (!$query) {
     
     <div class="mb-4">
         <h2 class="fw-bold text-dark mb-1">
-            <i class="bi bi-book-half text-success me-2"></i>Data Mata Kuliah
+            <i class="bi bi-book-half text-success me-2"></i>Data Matakuliah
         </h2>
         <p class="text-muted mb-0">Daftar mata kuliah beserta kebutuhan penempatan alat laboratorium</p>
     </div>
@@ -93,7 +93,7 @@ if (!$query) {
                 <thead>
                     <tr>
                         <th class="ps-3" style="width: 15%;">Kode MK</th>
-                        <th style="width: 35%;">Nama Mata Kuliah</th>
+                        <th style="width: 35%;">Nama Matakuliah</th>
                         <th class="text-center" style="width: 15%;">SKS</th>
                         <th class="text-center" style="width: 15%;">Semester</th>
                         <th class="text-center pe-3" style="width: 20%;">ID Alat</th>
