@@ -82,9 +82,9 @@ if (!$query) {
     
     <div class="mb-4">
         <h2 class="fw-bold text-dark mb-1">
-            <i class="bi bi-book-half text-success me-2"></i>Data Mata Kuliah
+            <i class="bi bi-book-half text-success me-2"></i>Data MataKuliah
         </h2>
-        <p class="text-muted mb-0">Daftar mata kuliah beserta kebutuhan penempatan alat laboratorium</p>
+        <p class="text-muted mb-0">Daftar matakuliah beserta kebutuhan penempatan alat laboratorium</p>
     </div>
 
     <div class="card card-custom p-4">
@@ -93,7 +93,7 @@ if (!$query) {
                 <thead>
                     <tr>
                         <th class="ps-3" style="width: 15%;">Kode MK</th>
-                        <th style="width: 35%;">Nama Mata Kuliah</th>
+                        <th style="width: 35%;">Nama MataKuliah</th>
                         <th class="text-center" style="width: 15%;">SKS</th>
                         <th class="text-center" style="width: 15%;">Semester</th>
                         <th class="text-center pe-3" style="width: 20%;">ID Alat</th>
@@ -139,7 +139,7 @@ if (!$query) {
                     ?>
                         <tr>
                             <td colspan="5" class="text-center py-5 text-muted">
-                                <i class="bi bi-journal-x fs-1 d-block mb-2"></i> Belum ada data mata kuliah.
+                                <i class="bi bi-journal-x fs-1 d-block mb-2"></i> Belum ada data matakuliah.
                             </td>
                         </tr>
                     <?php } ?>
