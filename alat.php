@@ -44,11 +44,17 @@ if (!$query) {
 
 <div class="container my-5">
     
-    <div class="mb-4">
-        <h2 class="fw-bold text-dark mb-1">Data Alat Laboratorium</h2>
-        <p class="text-muted mb-0">Daftar inventaris perangkat, kuantitas unit, beserta status kelayakan operasional</p>
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h2 class="fw-bold text-dark mb-1">Data Alat Laboratorium</h2>
+            <p class="text-muted mb-0">Daftar inventaris perangkat, kuantitas unit, beserta status kelayakan operasional</p>
+        </div>
+        <button type="button" class="btn btn-primary rounded-3 fw-semibold px-4 py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#tambahAlatModal">
+            <i class="bi bi-plus-lg me-1"></i> Tambah Alat
+        </button>
     </div>
 
+     
     <div class="card card-custom p-2">
         <div class="table-responsive">
             <table class="table table-premium align-middle mb-0">
@@ -62,6 +68,57 @@ if (!$query) {
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
+<div class="modal fade" id="tambahAlatModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judulModal">Tambah Data Alat Laboratorium</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <form action="proses_tambah_alat.php" method="POST">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">ID Alat</label>
+            <input type="text" name="id_alat" class="form-control" placeholder="Contoh: A09" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">ID Ruangan</label>
+            <select name="id_ruangan" class="form-select" required>
+              <?php
+              // Ambil data ruangan dari database
+              $query_ruangan = mysqli_query($conn, "SELECT id_ruangan, nama_ruangan FROM ruangan");
+              while ($ruang = mysqli_fetch_assoc($query_ruangan)) {
+                  echo "<option value='" . $ruang['id_ruangan'] . "'>" . $ruang['id_ruangan'] . " - " . $ruang['nama_ruangan'] . "</option>";
+              }
+              ?>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nama Alat</label>
+            <input type="text" name="nama_alat" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Kondisi</label>
+            <select name="kondisi" class="form-select" required>
+              <option value="Baik">Baik</option>
+              <option value="Rusak">Rusak</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Jumlah Alat (Unit)</label>
+            <input type="number" name="jumlah_alat" class="form-control" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan Data</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
                 <tbody>
                     <?php while($row = mysqli_fetch_assoc($query)) { ?>
                         <tr>

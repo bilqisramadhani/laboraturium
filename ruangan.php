@@ -55,12 +55,16 @@ if (!$query) {
 
 <div class="container my-5">
     
-    <div class="mb-4">
-        <h2 class="fw-bold text-dark mb-1">
-            <i class="bi bi-door-closed-fill text-primary me-2"></i>Data Ruangan Laboratorium
-        </h2>
-        <p class="text-muted mb-0">Daftar ruangan, kapasitas tampung, beserta status operasional laboratorium</p>
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h2 class="fw-bold text-dark mb-1"><i class="bi bi-door-closed-fill text-primary me-2"></i>Data Ruangan Laboratorium</h2>
+            <p class="text-muted mb-0">Daftar ruangan, kapasitas tampung, beserta status operasional laboratorium</p>
+        </div>
+        <button type="button" class="btn btn-primary rounded-3 fw-semibold px-4 py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#tambahRuanganModal">
+            <i class="bi bi-plus-lg me-1"></i> Tambah Ruangan
+        </button>
     </div>
+
 
     <div class="card card-custom p-4">
         <div class="table-responsive">
@@ -74,6 +78,47 @@ if (!$query) {
                         <th class="text-center pe-3" style="width: 20%;">Detail</th>
                     </tr>
                 </thead>
+                <!-- Modal Tambah Ruangan -->
+<div class="modal fade" id="tambahRuanganModal" tabindex="-1" aria-labelledby="judulModalRuangan" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judulModalRuangan">Tambah Data Ruangan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <!-- Form mengarah ke file proses_tambah_ruangan.php -->
+      <form action="proses_tambah_ruangan.php" method="POST">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">ID Ruangan</label>
+            <input type="text" name="id_ruangan" class="form-control" placeholder="Contoh: R05" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Nama Ruangan</label>
+            <input type="text" name="nama_ruangan" class="form-control" placeholder="Contoh: Lab 5" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Kapasitas (Kursi)</label>
+            <input type="number" name="kapasitas" class="form-control" placeholder="Contoh: 30" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Status</label>
+            <select name="status" class="form-select" required>
+              <option value="Tersedia">Tersedia</option>
+              <option value="Perbaikan">Perbaikan</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan Data</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
                 <tbody>
                     <?php 
                     if (mysqli_num_rows($query) > 0) {
