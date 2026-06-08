@@ -1,20 +1,23 @@
 <?php
 include 'koneksi.php';
 
-// Sesuaikan nama di $_POST['...'] dengan atribut 'name' di form HTML Anda
-$kode_mk = $_POST['kode_mk']; 
-$nama_mk = $_POST['nama_matakuliah'];
-$sks     = $_POST['sks'];
-$semester = $_POST['semester'];
-$id_alat  = $_POST['id_alat']; // Pastikan ini sudah ada di form
+// Menangkap data input dari form modal tambah matakuliah
+$kode_mk         = $_POST['kode_mk']; // Mengambil value input name="kode_mk"
+$nama_matakuliah = $_POST['nama_matakuliah'];
+$sks             = $_POST['sks'];
+$semester        = $_POST['semester'];
 
-// Pastikan nama kolom di bawah (kode_mk, nama_mk, dll) SAMA PERSIS dengan di database
-$query = "INSERT INTO matakuliah (kode_mk, nama_mk, sks, semester, id_alat) 
-          VALUES ('$kode_mk', '$nama_mk', '$sks', '$semester', '$id_alat')";
+// LOGIKA OTOMATISASI ID ALAT (Contoh: MK07 -> Ambil angka '07' -> gabung jadi 'A07')
+$angka = preg_replace('/[^0-9]/', '', $kode_mk); 
+$id_alat = 'A' . $angka; 
+
+// Menggunakan nama field database asli (case-sensitive)
+$query = "INSERT INTO matakuliah (Kode_MK, Nama_MK, SKS, Semester, ID_Alat) 
+          VALUES ('$kode_mk', '$nama_matakuliah', '$sks', '$semester', '$id_alat')";
 
 if(mysqli_query($conn, $query)) {
     header("Location: matakuliah.php");
 } else {
-    echo "Gagal: " . mysqli_error($conn);
+    echo "Gagal menambahkan data: " . mysqli_error($conn);
 }
 ?>

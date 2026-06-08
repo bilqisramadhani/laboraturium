@@ -79,7 +79,7 @@ $query_mk = mysqli_query($conn, "SELECT Kode_MK, Nama_MK FROM matakuliah");
                             </td>
                             <td class="text-secondary"><i class="bi bi-telephone text-muted me-2"></i><?php echo $row['Nomor_HP']; ?></td>
                             <td class="pe-4"><span class="badge-mk font-monospace"><?php echo $row['Kode_MK']; ?></span></td>
-                        </tr>
+                            </tr>
                     <?php } ?>
                 </tbody>
             </table>
